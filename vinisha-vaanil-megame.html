@@ -1,639 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+<meta name="x-apple-disable-message-reformatting">
 <title>Vaanil Megame — Vinisha Vinoth | Artium Originals</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Instrument+Sans:wght@300;400;500&display=swap');
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background-color: #0D0A07;
-    font-family: 'Instrument Sans', Georgia, sans-serif;
-    color: #EDE6DC;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .atm-wrapper { max-width: 620px; margin: 0 auto; background-color: #0D0A07; }
-
-  /* HEADER */
-  .atm-header {
-    padding: 22px 28px 18px; display: table; width: 100%;
-    background-color: #0D0A07; border-bottom: 1px solid rgba(201,165,68,0.18);
-  }
-  .atm-header-logo { display: table-cell; vertical-align: middle; }
-  .atm-header-logo img { height: 26px; display: block; }
-  .atm-header-right { display: table-cell; vertical-align: middle; text-align: right; }
-  .atm-header-right img { height: 20px; display: block; margin-left: auto; }
-
-  /* SPOTIFY TOP STRIP */
-  .atm-spotify-top {
-    background-color: #0E1A11; padding: 14px 28px;
-    display: table; width: 100%; border-bottom: 1px solid rgba(29,185,84,0.25);
-  }
-  .atm-spotify-top-left { display: table-cell; vertical-align: middle; }
-  .atm-spotify-top-left span {
-    font-family: 'Instrument Sans', sans-serif; font-size: 11px;
-    font-weight: 400; letter-spacing: 0.05em; color: #5a8a65;
-  }
-  .atm-spotify-top-right { display: table-cell; vertical-align: middle; text-align: right; }
-  
-
-  /* HERO */
-  .atm-hero { position: relative; width: 100%; overflow: hidden; }
-  .atm-hero-cover {
-    display: block; width: 100%; aspect-ratio: 1 / 1;
-    object-fit: cover; object-position: center top;
-  }
-  .atm-hero-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
-    background: linear-gradient(to top, #0D0A07 0%, rgba(13,10,7,0.85) 40%, rgba(13,10,7,0.3) 70%, transparent 100%);
-  }
-  .atm-hero-text { position: absolute; bottom: 30px; left: 28px; right: 28px; }
-
-  @keyframes atm-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.08; }
-  }
-  .atm-badge {
-    display: inline-block;
-    font-family: 'Instrument Sans', sans-serif; font-size: 11px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #C9A544;
-    border: 1px solid rgba(201,165,68,0.7); padding: 6px 14px; margin-bottom: 14px;
-    animation: atm-blink 1.5s ease-in-out infinite;
-  }
-  .atm-hero-title {
-    font-family: 'Playfair Display', Georgia, serif; font-size: 68px; font-weight: 400;
-    line-height: 1.0; color: #EDE6DC; letter-spacing: 0.01em; margin-bottom: 10px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-  }
-  .atm-hero-artist {
-    font-family: 'Instrument Sans', sans-serif; font-size: 12px; font-weight: 400;
-    letter-spacing: 0.2em; text-transform: uppercase; color: #C9A544;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
-  }
-
-  /* TAGLINE */
-  .atm-tagline-strip {
-    background-color: #130F0B; padding: 22px 28px;
-    border-top: 1px solid rgba(201,165,68,0.1); border-bottom: 1px solid rgba(201,165,68,0.1);
-    text-align: center;
-  }
-  .atm-tagline {
-    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400;
-    font-style: italic; color: #C8BB9A; line-height: 1.6;
-  }
-
-  /* MUSIC VIDEO TEASER BANNER */
-  .atm-mv-banner {
-    background: linear-gradient(135deg, #1A0E2E 0%, #2D1052 50%, #1A0E2E 100%);
-    padding: 26px 28px;
-    text-align: center;
-    border-top: 1px solid rgba(160,100,255,0.25);
-    border-bottom: 1px solid rgba(160,100,255,0.25);
-  }
-  .atm-mv-eyebrow {
-    font-family: 'Instrument Sans', sans-serif; font-size: 9px; font-weight: 500;
-    letter-spacing: 0.25em; text-transform: uppercase; color: #9B6FD4;
-    margin-bottom: 8px;
-  }
-  .atm-mv-headline {
-    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500;
-    color: #EDE6DC; line-height: 1.25; margin-bottom: 8px;
-  }
-  .atm-mv-headline span { color: #C9A544; font-style: italic; }
-  .atm-mv-date {
-    font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 400;
-    color: #9B6FD4; letter-spacing: 0.08em; margin-bottom: 6px;
-  }
-  .atm-mv-sub {
-    font-family: 'Instrument Sans', sans-serif; font-size: 11px; font-weight: 300;
-    color: #6A5580; letter-spacing: 0.04em;
-  }
-  .atm-mv-yt {
-    margin: 10px 0 8px;
-  }
-
-  /* SECTIONS */
-  .atm-section { padding: 32px 28px; }
-  .atm-label {
-    font-family: 'Instrument Sans', sans-serif; font-size: 9px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #C9A544; margin-bottom: 14px;
-  }
-  .atm-body {
-    font-family: 'Instrument Sans', sans-serif; font-size: 15px; font-weight: 300;
-    line-height: 1.85; color: #B8AFA2;
-  }
-  .atm-body strong { font-weight: 500; color: #EDE6DC; }
-
-  /* DIVIDER */
-  .atm-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(201,165,68,0.2), transparent);
-    margin: 0 28px;
-  }
-
-  /* ARTIST BLOCK */
-  .atm-artist-wrap { padding: 0 0 32px; }
-  .atm-artist-photo-box { position: relative; width: 100%; overflow: hidden; margin-bottom: 24px; }
-  .atm-artist-photo {
-    display: block; width: 100%;
-    object-fit: cover; object-position: center top;
-  }
-  .atm-artist-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(13,10,7,0.97) 0%, rgba(13,10,7,0.7) 35%, transparent 100%);
-    padding: 60px 28px 22px;
-  }
-  .atm-artist-name {
-    font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 400;
-    color: #EDE6DC; line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,0.9);
-  }
-  .atm-artist-sub {
-    font-family: 'Instrument Sans', sans-serif; font-size: 9px;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #C9A544; margin-top: 6px;
-  }
-
-  /* PULL QUOTE */
-  .atm-pullquote {
-    margin: 0 28px; padding: 22px 24px;
-    border-left: 2px solid #C9A544; background-color: #100D0A;
-  }
-  .atm-pullquote p {
-    font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400;
-    font-style: italic; line-height: 1.8; color: #C8BB9A;
-  }
-
-  /* JOURNEY SECTION — side by side */
-  .atm-journey { padding: 28px 28px 0; }
-  .atm-journey-grid { font-size: 0; }
-  .atm-journey-cell {
-    display: inline-block; width: 49%; vertical-align: top;
-  }
-  .atm-journey-cell:first-child { margin-right: 2%; }
-  .atm-journey-photo {
-    display: block; width: 100%; height: 210px;
-    object-fit: cover;
-  }
-  .atm-journey-photo-left { object-position: center top; }
-  .atm-journey-photo-right { object-position: center 20%; }
-  .atm-journey-sub {
-    font-family: 'Instrument Sans', sans-serif; font-size: 11px;
-    color: #5C5449; letter-spacing: 0.07em; margin-top: 7px; display: block;
-  }
-
-  /* PHOTO CAPTIONS */
-  .atm-caption {
-    font-family: 'Playfair Display', serif; font-size: 12px; font-style: italic;
-    color: #5C5449; letter-spacing: 0.02em; line-height: 1.5; padding: 10px 0;
-  }
-
-  /* METADATA ROW */
-  .atm-meta { display: table; width: 100%; padding: 0 28px; margin-bottom: 28px; }
-  .atm-meta-cell { display: table-cell; text-align: center; vertical-align: top; padding: 0 6px; }
-  .atm-meta-val {
-    font-family: 'Playfair Display', serif; font-size: 18px;
-    color: #EDE6DC; display: block; margin-bottom: 4px;
-  }
-  .atm-meta-key {
-    font-family: 'Instrument Sans', sans-serif; font-size: 8px; font-weight: 500;
-    letter-spacing: 0.17em; text-transform: uppercase; color: #4E4A43; display: block;
-  }
-  .atm-meta-sep { display: table-cell; vertical-align: middle; width: 1px; }
-  .atm-meta-sep-line { width: 1px; height: 32px; background: rgba(201,165,68,0.18); margin: 0 auto; }
-
-  /* CREDITS */
-  .atm-credits { display: table; width: 100%; border-collapse: collapse; }
-  .atm-cr { display: table-row; }
-  .atm-cr-role {
-    display: table-cell; font-family: 'Instrument Sans', sans-serif; font-size: 10px;
-    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #5C5449; padding: 6px 0; width: 44%; vertical-align: top;
-  }
-  .atm-cr-name {
-    display: table-cell; font-family: 'Instrument Sans', sans-serif; font-size: 13px;
-    font-weight: 300; color: #B8AFA2; padding: 6px 0; vertical-align: top;
-  }
-
-  /* ARTIUM ORIGINALS BLOCK — maroon */
-  .atm-ao-block {
-    background-color: #1A0608;
-    padding: 36px 28px 32px;
-    border-top: 3px solid #8B1A24;
-  }
-  .atm-ao-logo { margin-bottom: 18px; }
-  .atm-ao-logo img { height: 28px; display: block; filter: brightness(1.1); }
-  .atm-ao-body {
-    font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 300;
-    line-height: 1.85; color: #9A7A7E;
-  }
-  .atm-ao-body strong { font-weight: 500; color: #D4AAAE; }
-  .atm-ao-callout {
-    font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic;
-    color: #C9A544; margin-top: 18px; padding-top: 16px;
-    border-top: 1px solid rgba(139,26,36,0.25);
-  }
-
-  /* FOOTER */
-  .atm-footer {
-    background-color: #080604; padding: 28px 28px 24px;
-    border-top: 1px solid rgba(201,165,68,0.1);
-  }
-  .atm-footer-logos { text-align: center; margin-bottom: 18px; }
-  .atm-footer-logos img { height: 18px; opacity: 0.5; display: inline-block; }
-  .atm-socials { text-align: center; margin-bottom: 16px; }
-  .atm-socials a {
-    display: inline-block; margin: 0 7px;
-    font-family: 'Instrument Sans', sans-serif; font-size: 9px; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #4E4A43; text-decoration: none;
-  }
-  .atm-address {
-    text-align: center; font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px; line-height: 1.7; color: #2E2B27;
-  }
-  .atm-copyright {
-    text-align: center; font-family: 'Instrument Sans', sans-serif;
-    font-size: 10px; color: #2E2B27; margin-top: 12px; letter-spacing: 0.04em;
-  }
-
-  /* THE STAGE BLOCK */
-  .atm-stage-block {
-    background: linear-gradient(135deg, #1A1640 0%, #2A2060 50%, #1A1640 100%);
-    padding: 36px 28px;
-    text-align: center;
-    border-top: 1px solid rgba(120,100,200,0.3);
-  }
-  .atm-stage-eyebrow {
-    font-family: 'Instrument Sans', sans-serif; font-size: 9px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #7870B0; margin-bottom: 10px;
-  }
-  .atm-stage-title {
-    font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700;
-    color: #EDE6DC; margin-bottom: 8px;
-  }
-  .atm-stage-sub {
-    font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 300;
-    color: #8880B8; margin-bottom: 22px; letter-spacing: 0.02em;
-  }
-  .atm-stage-btn {
-    display: inline-block;
-    background-color: #7B6FC8;
-    color: #fff;
-    font-family: 'Instrument Sans', sans-serif; font-size: 11px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
-    padding: 14px 36px; border-radius: 30px;
-  }
-
-  /* FOOTER — redesigned */
-  .atm-footer {
-    background-color: #09080A;
-    padding: 0;
-    border-top: 1px solid rgba(100,90,120,0.2);
-  }
-  .atm-footer-top {
-    padding: 24px 28px 20px;
-    display: table; width: 100%;
-  }
-  .atm-footer-logo-cell { display: table-cell; vertical-align: middle; }
-  .atm-footer-icons-cell { display: table-cell; vertical-align: middle; text-align: right; }
-  .atm-icon-link {
-    display: inline-block; margin-left: 14px; vertical-align: middle;
-    text-decoration: none; opacity: 0.55;
-  }
-  .atm-footer-rule { height: 1px; background-color: rgba(255,255,255,0.05); margin: 0 28px; }
-  .atm-footer-bottom {
-    padding: 16px 28px 22px; display: table; width: 100%;
-  }
-  .atm-footer-addr {
-    display: table-cell; vertical-align: top;
-    font-family: 'Instrument Sans', sans-serif; font-size: 10px;
-    font-weight: 300; line-height: 1.75; color: #3A3540;
-  }
-  .atm-footer-dept {
-    display: table-cell; vertical-align: top; text-align: right;
-    font-family: 'Instrument Sans', sans-serif; font-size: 10px;
-    font-weight: 500; color: #3A3540; line-height: 1.75;
-  }
-  .atm-footer-dept span { font-weight: 300; display: block; }
+<style type="text/css">
+body{margin:0!important;padding:0!important;background-color:#0D0A07!important;width:100%!important;}
+table{border-collapse:collapse;}
+img{-ms-interpolation-mode:bicubic;display:block;}
+a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;}
+u + #body a{color:inherit!important;text-decoration:none!important;}
+#MessageViewBody a{color:inherit!important;text-decoration:none!important;}
 </style>
 </head>
-<body>
-<div class="atm-wrapper">
+<body id="body" style="margin:0;padding:0;background-color:#0D0A07;">
 
-  <!-- HEADER -->
-  <div class="atm-header">
-    <div class="atm-header-logo">
-      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439943/Group_13_3_soekwu.png" alt="Artium Academy" />
-    </div>
-    <div class="atm-header-right">
-      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439944/Artium_Original_logo_png_2_wmov65.png" alt="Artium Originals" />
-    </div>
-  </div>
+<!-- PREHEADER -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Vaanil Megame is out today. Vinisha Vinoth's first original — a Tamil love song, dreamy and unhurried. Go listen.&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;</div>
 
-  <!-- SPOTIFY TOP STRIP -->
-  <div class="atm-spotify-top">
-    <div class="atm-spotify-top-left">
-      <span>Vaanil Megame &nbsp;&bull;&nbsp; Vinisha Vinoth &nbsp;&bull;&nbsp; Out now</span>
-    </div>
-    <div class="atm-spotify-top-right">
-      <a href="https://open.spotify.com/track/4PA9SoRaAGegUMSonXPAU1?si=13d4961ce12e4a22" style="display:inline-block;padding:10px 22px;background-color:#1DB954;border-radius:20px;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#000000;text-decoration:none;white-space:nowrap;"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778741437/play-icon_pnhx7v.png" width="12" height="12" alt="" style="display:inline-block;vertical-align:middle;margin-right:7px;margin-bottom:2px;border:0;">LISTEN ON SPOTIFY</a>
-    </div>
-  </div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0D0A07;">
+<tr><td align="center" style="padding:0;">
+<table width="620" cellpadding="0" cellspacing="0" border="0" style="max-width:620px;width:100%;background-color:#0D0A07;">
 
-  <!-- HERO -->
-  <div class="atm-hero">
-    <img class="atm-hero-cover"
-      src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078590/Vaanil_Megame_-_Vinisha_Vinoth_moursk.jpg"
-      alt="Vaanil Megame — Vinisha Vinoth" />
-    <div class="atm-hero-overlay"></div>
-    <div class="atm-hero-text">
-      <div class="atm-badge">&#9679; New Release</div>
-      <div class="atm-hero-title">Vaanil<br>Megame</div>
-      <div class="atm-hero-artist">Vinisha Vinoth</div>
-    </div>
-  </div>
+<!-- HEADER -->
+<tr><td style="background-color:#0D0A07;padding:22px 28px 18px;border-bottom:1px solid rgba(201,165,68,0.18);">
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td valign="middle"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439943/Group_13_3_soekwu.png" alt="Artium Academy" height="26" style="height:26px;width:auto;display:block;"></td>
+  <td valign="middle" align="right"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439944/Artium_Original_logo_png_2_wmov65.png" alt="Artium Originals" height="20" style="height:20px;width:auto;display:block;"></td>
+</tr></table>
+</td></tr>
 
-  <!-- TAGLINE -->
-  <div class="atm-tagline-strip">
-    <div class="atm-tagline">"Some feelings don't need words.<br>They just need the right song."</div>
-  </div>
+<!-- SPOTIFY STRIP -->
+<tr><td style="background-color:#0E1A11;padding:13px 28px;border-bottom:1px solid rgba(29,185,84,0.2);">
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+  <td valign="middle"><span style="font-family:Arial,sans-serif;font-size:11px;color:#5a8a65;letter-spacing:0.05em;">Vaanil Megame &nbsp;&bull;&nbsp; Vinisha Vinoth &nbsp;&bull;&nbsp; Out now</span></td>
+  <td valign="middle" align="right">
+    <a href="https://open.spotify.com/track/4PA9SoRaAGegUMSonXPAU1?si=13d4961ce12e4a22" style="display:inline-block;padding:9px 20px;background-color:#1DB954;border-radius:20px;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:#000000;text-decoration:none;white-space:nowrap;"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778741437/play-icon_pnhx7v.png" width="11" height="11" alt="" style="display:inline-block;vertical-align:middle;margin-right:6px;border:0;">LISTEN ON SPOTIFY</a>
+  </td>
+</tr></table>
+</td></tr>
 
-  <!-- MUSIC VIDEO TEASER BANNER -->
-  <div class="atm-mv-banner">
-    <div class="atm-mv-eyebrow">Coming Soon</div>
-    <div class="atm-mv-headline">Music Video dropping <span>3rd June</span> on <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780082212/YouTube_Logo_1_cg1nhc.png" alt="YouTube" style="height:22px; display:inline-block; vertical-align:middle; position:relative; top:-2px;" /></div>
-    <div class="atm-mv-date">Wednesday, 3 June 2026</div>
-    <div class="atm-mv-sub">Subscribe to the Artium Originals YouTube channel so you don't miss it.</div>
-  </div>
+<!-- HERO IMAGE with NEW RELEASE badge overlaid -->
+<tr><td style="padding:0;line-height:0;">
+  <table width="620" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:620px;">
+    <tr>
+      <td style="padding:0;line-height:0;position:relative;">
+        <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078590/Vaanil_Megame_-_Vinisha_Vinoth_moursk.jpg" alt="Vaanil Megame — Vinisha Vinoth" width="620" style="width:100%;max-width:620px;height:auto;display:block;">
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color:#0D0A07;padding:14px 20px;">
+        <span style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;border:1px solid rgba(201,165,68,0.7);padding:6px 14px;">&#9679; &nbsp;NEW RELEASE</span>
+      </td>
+    </tr>
+  </table>
+</td></tr>
 
-  <!-- INTRO -->
-  <div class="atm-section">
-    <div class="atm-label">A Note from Us</div>
-    <p class="atm-body">
-      We have been watching Vinisha grow as a singer for years now. And we have always known there was a song inside her waiting to come out. This is it.<br><br>
-      <strong>Vaanil Megame</strong> is out today on all streaming platforms. It is a Tamil love song, dreamy and unhurried, the kind that stays with you after it ends. Vinisha recorded it at The Artium Studios, and every listen will tell you she was ready for this moment.
-    </p>
-  </div>
+<!-- TAGLINE -->
+<tr><td style="background-color:#130F0B;padding:22px 28px;border-top:1px solid rgba(201,165,68,0.1);border-bottom:1px solid rgba(201,165,68,0.1);text-align:center;">
+  <p style="font-family:Georgia,serif;font-size:20px;font-style:italic;color:#C8BB9A;line-height:1.6;margin:0;">"Some feelings don't need words.<br>They just need the right song."</p>
+</td></tr>
 
-  <div class="atm-divider"></div>
+<!-- MUSIC VIDEO BANNER -->
+<tr><td style="background-color:#1A0E2E;padding:24px 28px;text-align:center;border-top:1px solid rgba(160,100,255,0.2);border-bottom:1px solid rgba(160,100,255,0.2);">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.25em;text-transform:uppercase;color:#9B6FD4;margin:0 0 8px 0;">Coming Soon</p>
+  <p style="font-family:Georgia,serif;font-size:24px;color:#EDE6DC;line-height:1.3;margin:0 0 8px 0;">Music Video dropping <span style="color:#C9A544;font-style:italic;">3rd June</span> on <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780082212/YouTube_Logo_1_cg1nhc.png" alt="YouTube" height="18" style="height:18px;width:auto;display:inline-block;vertical-align:middle;margin-left:4px;"></p>
+  <p style="font-family:Arial,sans-serif;font-size:12px;color:#9B6FD4;letter-spacing:0.08em;margin:0 0 6px 0;">Wednesday, 3 June 2026</p>
+  <p style="font-family:Arial,sans-serif;font-size:11px;color:#6A5580;margin:0;">Subscribe to the Artium Originals YouTube channel so you don't miss it.</p>
+</td></tr>
 
-  <!-- ARTIST BLOCK -->
-  <div class="atm-artist-wrap" style="padding-top: 32px;">
-    <div class="atm-artist-photo-box">
-      <img class="atm-artist-photo"
-        src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078589/WhatsApp_Image_2026-05-11_at_16.47.01_fdhr9c.jpg"
-        alt="Vinisha Vinoth" />
-      <div class="atm-artist-overlay">
-        <div class="atm-artist-name">Vinisha Vinoth</div>
-        <div class="atm-artist-sub">Singer &bull; Artium Originals</div>
-      </div>
-    </div>
-    <div style="padding: 0 28px;">
-      <div class="atm-label">About Vinisha</div>
-      <p class="atm-body">
-        Vinisha has been an Artium student for years. Her journey with us has been nothing short of inspiring.<br><br>
-        She won the <strong>Artium Superstar 2026</strong> competition in the Popular and Film Music (South) category, Under 16. She has performed at <strong>unMute Chennai</strong>. And through all of that, she has been quietly building toward exactly this moment: her first original for the world to hear.
-      </p>
-    </div>
-  </div>
+<!-- INTRO -->
+<tr><td style="background-color:#0D0A07;padding:32px 28px 24px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 14px 0;">A Note from Us</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 16px 0;">We have been watching Vinisha grow as a singer for years now. And we have always known there was a song inside her waiting to come out. This is it.</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0;"><strong style="font-weight:bold;color:#EDE6DC;">Vaanil Megame</strong> is out today on all streaming platforms. It is a Tamil love song, dreamy and unhurried, the kind that stays with you after it ends. Vinisha recorded it at The Artium Studios, and every listen will tell you she was ready for this moment.</p>
+</td></tr>
 
-  <!-- ABOUT THE SONG -->
-  <div class="atm-divider"></div>
-  <div class="atm-section">
-    <div class="atm-label">About the Song</div>
-    <p class="atm-body">
-      The song was written by <strong>Divyavalli Santhosh</strong>, and the writing is something special. Divyavalli builds the whole song around images: a cloud that touches you, a raindrop from a new moon, the fragrance of flowers, a breeze with nowhere to go. Every line is reaching for something that can barely be named.
-    </p>
-  </div>
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
 
-  <div class="atm-pullquote">
-    <p>In the chilling rain, I stood close beside you under your umbrella. Softly, slowly, I breathed in the warmth of your breath. You are my only desire.</p>
-  </div>
+<!-- ARTIST PHOTO + NAME OVERLAY -->
+<tr><td style="padding:32px 0 0;line-height:0;">
+  <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078589/WhatsApp_Image_2026-05-11_at_16.47.01_fdhr9c.jpg" alt="Vinisha Vinoth" width="620" style="width:100%;max-width:620px;height:auto;display:block;">
+</td></tr>
+<tr><td style="background-color:#1A1208;padding:14px 28px 20px;border-bottom:1px solid rgba(201,165,68,0.12);">
+  <p style="font-family:Georgia,serif;font-size:28px;font-weight:normal;color:#EDE6DC;margin:0 0 4px 0;">Vinisha Vinoth</p>
+  <p style="font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0;">Singer &bull; Artium Originals</p>
+</td></tr>
 
-  <div class="atm-section" style="padding-top: 22px;">
-    <p class="atm-body">
-      The song moves in three layers. The Pallavi opens with sky and cloud and a heart leaping, wide and dreamy. The Anupallavi and Bridge pull inward: unspoken joys, a soul that moves toward someone. And the Charanam brings it all the way down to earth: two people, an umbrella, rain, closeness.<br><br>
-      Composed and produced by <strong>Akshay Purandare</strong>, the arrangement gives Vinisha's voice room to do what it does best: hold the gentleness and carry the longing at the same time.
-    </p>
-  </div>
+<!-- ABOUT VINISHA -->
+<tr><td style="background-color:#0D0A07;padding:24px 28px 32px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 14px 0;">About Vinisha</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 16px 0;">Vinisha has been an Artium student for years. Her journey with us has been nothing short of inspiring.</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0;">She won the <strong style="color:#EDE6DC;">Artium Superstar 2026</strong> competition in the Popular and Film Music (South) category, Under 16. She has performed at <strong style="color:#EDE6DC;">unMute Chennai</strong>. And through all of that, she has been quietly building toward exactly this moment: her first original for the world to hear.</p>
+</td></tr>
 
-  <!-- SONG PHOTOSHOOT: full width -->
-  <img style="display:block; width:100%; object-fit:cover; object-position:center top;"
-    src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078589/image_bppojz.png"
-    alt="Vaanil Megame photoshoot" />
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
 
-  <div class="atm-divider" style="margin-top: 0;"></div>
+<!-- ABOUT THE SONG -->
+<tr><td style="background-color:#0D0A07;padding:32px 28px 20px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 14px 0;">About the Song</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0;">The song was written by <strong style="color:#EDE6DC;">Divyavalli Santhosh</strong>, and the writing is something special. Divyavalli builds the whole song around images: a cloud that touches you, a raindrop from a new moon, the fragrance of flowers, a breeze with nowhere to go. Every line is reaching for something that can barely be named.</p>
+</td></tr>
 
-  <!-- JOURNEY: side by side, per-photo object-position to avoid cropping -->
-  <div class="atm-journey">
-    <div class="atm-label" style="margin-bottom: 16px;">From then to now</div>
-    <div class="atm-journey-grid">
-      <div class="atm-journey-cell">
-        <img class="atm-journey-photo atm-journey-photo-left"
-          src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078588/Vinisha_1st_class_photo_o0pzk4.jpg"
-          alt="Vinisha's first Artium class" />
-        <span class="atm-journey-sub">Her first Artium class</span>
-      </div>
-      <div class="atm-journey-cell">
-        <img class="atm-journey-photo atm-journey-photo-right"
-          src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078591/IMG_3015_1_mrnszw.jpg"
-          alt="First recording session" />
-        <span class="atm-journey-sub">First time in the studio</span>
-      </div>
-    </div>
-  </div>
+<!-- PULL QUOTE -->
+<tr><td style="padding:0 28px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td style="width:2px;background-color:#C9A544;font-size:0;line-height:0;">&nbsp;</td>
+    <td style="background-color:#100D0A;padding:20px 22px;">
+      <p style="font-family:Georgia,serif;font-size:17px;font-style:italic;line-height:1.8;color:#C8BB9A;margin:0;">In the chilling rain, I stood close beside you under your umbrella. Softly, slowly, I breathed in the warmth of your breath. You are my only desire.</p>
+    </td>
+  </tr></table>
+</td></tr>
 
-  <!-- unMute: full width -->
-  <div style="padding: 24px 28px 0;">
-    <img style="display:block; width:100%; object-fit:cover; object-position:center top;"
-      src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078595/Vinisha_-_unmute_hdfmpj.png"
-      alt="Vinisha at unMute Chennai" />
-    <div class="atm-caption">unMute Chennai</div>
-  </div>
+<!-- SONG ABOUT CONTINUED -->
+<tr><td style="background-color:#0D0A07;padding:22px 28px 28px;">
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 16px 0;">The song moves in three layers. The Pallavi opens with sky and cloud and a heart leaping, wide and dreamy. The Anupallavi and Bridge pull inward: unspoken joys, a soul that moves toward someone. And the Charanam brings it all the way down to earth: two people, an umbrella, rain, closeness.</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0;">Composed and produced by <strong style="color:#EDE6DC;">Akshay Purandare</strong>, the arrangement gives Vinisha's voice room to do what it does best: hold the gentleness and carry the longing at the same time.</p>
+</td></tr>
 
-  <!-- Artium Superstar: Chithra Ji -->
-  <div style="padding: 16px 28px 36px;">
-    <img style="display:block; width:100%; object-fit:cover; object-position:top center;"
-      src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780079900/IMG_1986_xjwyqc.jpg"
-      alt="Artium Superstar 2026 with K.S. Chithra" />
-    <div class="atm-caption">
-      Winner, Artium Superstar 2026 &mdash; Popular &amp; Film Music (South), Under 16
-    </div>
-  </div>
+<!-- SONG PHOTOSHOOT -->
+<tr><td style="padding:0;line-height:0;">
+  <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078589/image_bppojz.png" alt="Vaanil Megame" width="620" style="width:100%;max-width:620px;height:auto;display:block;">
+</td></tr>
 
-  <div class="atm-divider"></div>
-  <div class="atm-section" style="padding-bottom: 20px;">
-    <div class="atm-label">Behind Every Artist</div>
-    <div style="display:table; width:100%;">
-      <div style="display:table-cell; width:140px; vertical-align:top; padding-right:20px;">
-    <img style="display:block; width:150px; height:10%; min-height:10px; object-fit:cover; object-position:center top; border-radius:2px;"<img style="display:block; width:140px; height:140px; object-fit:cover; object-position:center top; border-radius:4px;"
-          src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780130438/Untitled_design_7_u1kjh5.png"
-          alt="Vinisha with her parents" />
-      </div>
-      <div style="display:table-cell; vertical-align:top;">
-        <p class="atm-body">
-          None of this happens without the people at home. Vinisha's parents have been there through every class, every practice session, every early morning that goes into building something real. They believed in her long before there was a song to show for it.<br><br>
-          That kind of support is not small. For a young artist, knowing that the people closest to you are in your corner makes all the difference between giving up and going further. Vinisha went further.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="atm-divider"></div>
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
 
-  <div class="atm-divider"></div>
-  <div class="atm-section" style="padding-bottom: 16px;">
-    <div class="atm-label">Release Details</div>
-  </div>
-  <div class="atm-meta">
-    <div class="atm-meta-cell">
-      <span class="atm-meta-val">Tamil</span>
-      <span class="atm-meta-key">Language</span>
-    </div>
-    <div class="atm-meta-sep"><div class="atm-meta-sep-line"></div></div>
-    <div class="atm-meta-cell">
-      <span class="atm-meta-val">Pop</span>
-      <span class="atm-meta-key">Genre</span>
-    </div>
-    <div class="atm-meta-sep"><div class="atm-meta-sep-line"></div></div>
-    <div class="atm-meta-cell">
-      <span class="atm-meta-val">2026</span>
-      <span class="atm-meta-key">Year</span>
-    </div>
-    <div class="atm-meta-sep"><div class="atm-meta-sep-line"></div></div>
-    <div class="atm-meta-cell">
-      <span class="atm-meta-val">Worldwide</span>
-      <span class="atm-meta-key">Distribution</span>
-    </div>
-  </div>
+<!-- JOURNEY: 2 col -->
+<tr><td style="background-color:#0D0A07;padding:28px 28px 0;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 16px 0;">From then to now</p>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="49%" valign="top" style="padding-right:8px;">
+      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078588/Vinisha_1st_class_photo_o0pzk4.jpg" alt="Her first Artium class" width="280" height="210" style="width:100%;height:210px;object-fit:cover;display:block;">
+      <p style="font-family:Arial,sans-serif;font-size:11px;color:#5C5449;margin:7px 0 0 0;letter-spacing:0.07em;">Her first Artium class</p>
+    </td>
+    <td width="49%" valign="top" style="padding-left:8px;">
+      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078591/IMG_3015_1_mrnszw.jpg" alt="First time in the studio" width="280" height="210" style="width:100%;height:210px;object-fit:cover;display:block;">
+      <p style="font-family:Arial,sans-serif;font-size:11px;color:#5C5449;margin:7px 0 0 0;letter-spacing:0.07em;">First time in the studio</p>
+    </td>
+  </tr></table>
+</td></tr>
 
-  <div class="atm-divider" style="margin-bottom: 32px;"></div>
+<!-- UNMUTE PHOTO -->
+<tr><td style="background-color:#0D0A07;padding:24px 28px 0;line-height:0;">
+  <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780078595/Vinisha_-_unmute_hdfmpj.png" alt="Vinisha at unMute Chennai" width="564" style="width:100%;height:auto;display:block;">
+  <p style="font-family:Georgia,serif;font-size:12px;font-style:italic;color:#5C5449;margin:10px 0 0 0;line-height:1.5;">unMute Chennai</p>
+</td></tr>
 
-  <!-- CREDITS -->
-  <div class="atm-section" style="padding-top: 0;">
-    <div class="atm-label">Credits</div>
-    <div class="atm-credits">
-      <div class="atm-cr">
-        <div class="atm-cr-role">Singer</div>
-        <div class="atm-cr-name">Vinisha Vinoth</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Composer &amp; Producer</div>
-        <div class="atm-cr-name">Akshay Purandare</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Lyrics</div>
-        <div class="atm-cr-name">Divyavalli Santhosh</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Mix &amp; Master</div>
-        <div class="atm-cr-name">Akshay Purandare</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Recording Studio</div>
-        <div class="atm-cr-name">The Artium Studios, Mumbai</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Scratch Vocalist</div>
-        <div class="atm-cr-name">Lekshmi Priya P.S</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Artwork</div>
-        <div class="atm-cr-name">Jaimil Desai</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Social Media &amp; Content</div>
-        <div class="atm-cr-name">Paras, Aniket, Sanjana &amp; Karan (Artium Content Team)</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Video Production Coordination</div>
-        <div class="atm-cr-name">Sohan Kotian</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Distribution</div>
-        <div class="atm-cr-name">Global Music Junction (GMJ)</div>
-      </div>
-      <div class="atm-cr">
-        <div class="atm-cr-role">Label</div>
-        <div class="atm-cr-name">Artium Originals / Artium Academy Pvt. Ltd.</div>
-      </div>
-    </div>
-  </div>
+<!-- SUPERSTAR PHOTO -->
+<tr><td style="background-color:#0D0A07;padding:16px 28px 36px;">
+  <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780079900/IMG_1986_xjwyqc.jpg" alt="Artium Superstar 2026" width="564" style="width:100%;height:auto;display:block;">
+  <p style="font-family:Georgia,serif;font-size:12px;font-style:italic;color:#5C5449;margin:10px 0 0 0;line-height:1.5;">Winner, Artium Superstar 2026 &mdash; Popular &amp; Film Music (South), Under 16</p>
+</td></tr>
 
-  <!-- HEAD OF TALENT DEVELOPMENT MESSAGE -->
-  <div class="atm-divider"></div>
-  <div class="atm-section">
-    <div class="atm-label">A Note from the Talent Development Department</div>
-    <p class="atm-body">
-      Vinisha has been part of this ecosystem for a long time. We have watched her grow from a young student into someone who understands what music asks of her: the discipline, the patience, the willingness to keep going even when no one is watching.<br><br>
-      This release is not a milestone we handed her; she genuinely earned it. Vaanil Megame is the sound of that work, and we are proud to have been part of the journey that made it possible.
-    </p>
-    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(201,165,68,0.12);">
-      <div style="font-family:'Instrument Sans',sans-serif; font-size:13px; font-weight:500; color:#EDE6DC; letter-spacing:0.04em;">Abhijeet Thakur</div>
-      <div style="font-family:'Instrument Sans',sans-serif; font-size:10px; font-weight:300; color:#6B6358; letter-spacing:0.1em; text-transform:uppercase; margin-top:3px;">Head of Talent &amp; Originals, Artium Academy</div>
-    </div>
-  </div>
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
 
-  <!-- ARTIUM ORIGINALS BLOCK -->
-  <div class="atm-ao-block">
-    <div class="atm-ao-logo">
-      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439944/Artium_Original_logo_png_2_wmov65.png" alt="Artium Originals" />
-    </div>
-    <p class="atm-ao-body">
-      Artium Originals is Artium's own music label. Open to both students and teachers across the Artium ecosystem.<br><br>
-      <strong>For students:</strong> Artium Superstar winners and exceptional ATDP students get priority. <strong>For teachers and AEs:</strong> releases happen through the Teacher Series.<br><br>
-      <strong>50+ originals</strong> already out on all streaming platforms, with more in the pipeline through 2027.
-    </p>
-    <div class="atm-ao-callout">Every release here started with someone deciding to take their music seriously.</div>
-  </div>
+<!-- BEHIND EVERY ARTIST -->
+<tr><td style="background-color:#0D0A07;padding:28px 28px 24px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 16px 0;">Behind Every Artist</p>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td width="140" valign="top" style="padding-right:20px;">
+      <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1780130438/Untitled_design_7_u1kjh5.png" alt="Vinisha with her parents" width="140" style="width:140px;height:auto;display:block;border-radius:3px;">
+    </td>
+    <td valign="top">
+      <p style="font-family:Arial,sans-serif;font-size:14px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 14px 0;">None of this happens without the people at home. Vinisha's parents have been there through every class, every practice session, every early morning that goes into building something real. They believed in her long before there was a song to show for it.</p>
+      <p style="font-family:Arial,sans-serif;font-size:14px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0;">That kind of support is not small. For a young artist, knowing that the people closest to you are in your corner makes all the difference between giving up and going further. Vinisha went further.</p>
+    </td>
+  </tr></table>
+</td></tr>
 
-  <!-- THE STAGE -->
-  <div class="atm-stage-block">
-    <div class="atm-stage-eyebrow">Artium Internal Newsletter Gallery</div>
-    <div class="atm-stage-title">The Stage</div>
-    <div class="atm-stage-sub">All our newsletters in one place.</div>
-    <a href="https://artium-stage.vercel.app" class="atm-stage-btn">Visit The Stage</a>
-  </div>
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
 
-  <!-- FOOTER -->
-  <div class="atm-footer">
-    <div class="atm-footer-top">
-      <div class="atm-footer-logo-cell">
-        <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439943/Group_13_3_soekwu.png" alt="Artium Academy" style="height:28px; display:block;" />
-      </div>
-      <div class="atm-footer-icons-cell">
-        <a href="https://youtube.com/channel/UCb4wuyVXjQ_a3_jVXi9hgPg" class="atm-icon-link" title="YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#6B6358"><path d="M23.5 6.2s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.8-1.2C16.7 2.1 12 2.1 12 2.1s-4.7 0-7.6.2c-.6.1-1.8.1-2.8 1.2C.7 4.3.5 6.2.5 6.2S.3 8.4.3 10.6v2.1c0 2.2.2 4.4.2 4.4s.3 1.9 1.1 2.7c1.1 1.1 2.5 1.1 3.1 1.1C6.8 21 12 21 12 21s4.7 0 7.6-.2c.6-.1 1.8-.1 2.8-1.2.8-.8 1.1-2.7 1.1-2.7s.2-2.2.2-4.4v-2.1c0-2.2-.2-4.4-.2-4.4zM9.7 14.9V8.4l6.6 3.3-6.6 3.2z"/></svg>
-        </a>
-        <a href="https://instagram.com/artiumacademyofficial/" class="atm-icon-link" title="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#6B6358"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.2 4.8.4 4 .7 3.1 1 2.3 1.5 1.5 2.3.7 3.1.2 3.9-.1 4.8-.4 5.6-.5 6.6-.6 7.9-.7 9.1-.7 9.5-.7 12s0 2.9.1 4.1c.1 1.3.3 2.3.6 3.1.3.9.8 1.7 1.6 2.5.8.8 1.6 1.3 2.5 1.6.8.3 1.8.5 3.1.6 1.2.1 1.6.1 4.1.1s2.9 0 4.1-.1c1.3-.1 2.3-.3 3.1-.6.9-.3 1.7-.8 2.5-1.6.8-.8 1.3-1.6 1.6-2.5.3-.8.5-1.8.6-3.1.1-1.2.1-1.6.1-4.1s0-2.9-.1-4.1c-.1-1.3-.3-2.3-.6-3.1-.3-.9-.8-1.7-1.6-2.5C21.7.8 20.9.3 20 0 19.2-.3 18.2-.5 16.9-.6 15.7-.7 15.3-.7 12-.7zM12 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
-        </a>
-        <a href="https://linkedin.com/company/artiumacademy" class="atm-icon-link" title="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#6B6358"><path d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6zM8.3 18.5H5.6V9.7h2.7v8.8zm-1.3-10c-.9 0-1.6-.7-1.6-1.6 0-.9.7-1.6 1.6-1.6.9 0 1.6.7 1.6 1.6 0 .9-.8 1.6-1.6 1.6zm11.5 10h-2.7v-4.3c0-1 0-2.4-1.4-2.4-1.5 0-1.7 1.1-1.7 2.3v4.3H10V9.7h2.6v1.2h.1c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.9z"/></svg>
-        </a>
-        <a href="https://x.com/artiumacademy" class="atm-icon-link" title="X">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#6B6358"><path d="M18.3 2h3.1l-6.8 7.8 8 10.6h-6.3l-4.9-6.4-5.6 6.4H2.7l7.3-8.3L2.3 2h6.5l4.4 5.8L18.3 2zm-1.1 16.6h1.7L7 3.7H5.2l12 14.9z"/></svg>
-        </a>
-        <a href="https://facebook.com/ArtiumAcademyOfficial/" class="atm-icon-link" title="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#6B6358"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3.1V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="atm-footer-rule"></div>
-    <div class="atm-footer-bottom">
-      <div class="atm-footer-addr">
-        Artium Academy Pvt Ltd<br>
-        5th Floor D Wing, Gundecha Onclave, Khairani Rd,<br>
-        Chandivali, Saki Naka, Mumbai, Maharashtra 400072
-      </div>
-      <div class="atm-footer-dept">
-        Artium Talent Development Department<br>
-        <span>Internal Newsletter &nbsp;&middot;&nbsp; May 2026</span>
-      </div>
-    </div>
-  </div>
+<!-- RELEASE DETAILS -->
+<tr><td style="background-color:#0D0A07;padding:28px 28px 16px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 16px 0;">Release Details</p>
+</td></tr>
+<tr><td style="padding:0 28px 28px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td align="center" valign="top">
+      <p style="font-family:Georgia,serif;font-size:18px;color:#EDE6DC;margin:0 0 4px 0;">Tamil</p>
+      <p style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:0.17em;text-transform:uppercase;color:#4E4A43;margin:0;">Language</p>
+    </td>
+    <td width="1" style="background-color:rgba(201,165,68,0.18);font-size:0;line-height:0;">&nbsp;</td>
+    <td align="center" valign="top">
+      <p style="font-family:Georgia,serif;font-size:18px;color:#EDE6DC;margin:0 0 4px 0;">Pop</p>
+      <p style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:0.17em;text-transform:uppercase;color:#4E4A43;margin:0;">Genre</p>
+    </td>
+    <td width="1" style="background-color:rgba(201,165,68,0.18);font-size:0;line-height:0;">&nbsp;</td>
+    <td align="center" valign="top">
+      <p style="font-family:Georgia,serif;font-size:18px;color:#EDE6DC;margin:0 0 4px 0;">2026</p>
+      <p style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:0.17em;text-transform:uppercase;color:#4E4A43;margin:0;">Year</p>
+    </td>
+    <td width="1" style="background-color:rgba(201,165,68,0.18);font-size:0;line-height:0;">&nbsp;</td>
+    <td align="center" valign="top">
+      <p style="font-family:Georgia,serif;font-size:18px;color:#EDE6DC;margin:0 0 4px 0;">Worldwide</p>
+      <p style="font-family:Arial,sans-serif;font-size:8px;font-weight:bold;letter-spacing:0.17em;text-transform:uppercase;color:#4E4A43;margin:0;">Distribution</p>
+    </td>
+  </tr></table>
+</td></tr>
 
-</div>
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px 32px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+<!-- CREDITS -->
+<tr><td style="background-color:#0D0A07;padding:0 28px 32px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 14px 0;">Credits</p>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;width:44%;vertical-align:top;">Singer</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Vinisha Vinoth</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Composer &amp; Producer</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Akshay Purandare</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Lyrics</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Divyavalli Santhosh</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Mix &amp; Master</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Akshay Purandare</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Recording Studio</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">The Artium Studios, Mumbai</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Scratch Vocalist</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Lekshmi Priya P.S</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Artwork</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Jaimil Desai</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Social Media &amp; Content</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Paras, Aniket, Sanjana &amp; Karan (Artium Content Team)</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Video Production Coordination</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Sohan Kotian</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Distribution</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Global Music Junction (GMJ)</td></tr>
+    <tr><td style="font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.12em;text-transform:uppercase;color:#5C5449;padding:6px 0;vertical-align:top;">Label</td><td style="font-family:Arial,sans-serif;font-size:13px;color:#B8AFA2;padding:6px 0;vertical-align:top;">Artium Originals / Artium Academy Pvt. Ltd.</td></tr>
+  </table>
+</td></tr>
+
+<!-- DIVIDER -->
+<tr><td style="padding:0 28px;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(201,165,68,0.15);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+<!-- HOTD NOTE -->
+<tr><td style="background-color:#0D0A07;padding:32px 28px 28px;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#C9A544;margin:0 0 14px 0;">A Note from the Talent Development Department</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 16px 0;">Vinisha has been part of this ecosystem for a long time. We have watched her grow from a young student into someone who understands what music asks of her: the discipline, the patience, the willingness to keep going even when no one is watching.</p>
+  <p style="font-family:Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:#B8AFA2;margin:0 0 20px 0;">This release is not a milestone we handed her; she genuinely earned it. Vaanil Megame is the sound of that work, and we are proud to have been part of the journey that made it possible.</p>
+  <p style="font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#EDE6DC;letter-spacing:0.04em;margin:0 0 3px 0;padding-top:16px;border-top:1px solid rgba(201,165,68,0.12);">Abhijeet Thakur</p>
+  <p style="font-family:Arial,sans-serif;font-size:10px;color:#6B6358;letter-spacing:0.1em;text-transform:uppercase;margin:0;">Head of Talent &amp; Originals, Artium Academy</p>
+</td></tr>
+
+<!-- ARTIUM ORIGINALS BLOCK -->
+<tr><td style="background-color:#1A0608;padding:36px 28px 32px;border-top:3px solid #8B1A24;">
+  <img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439944/Artium_Original_logo_png_2_wmov65.png" alt="Artium Originals" height="28" style="height:28px;width:auto;display:block;margin-bottom:18px;">
+  <p style="font-family:Arial,sans-serif;font-size:14px;line-height:1.85;color:#9A7A7E;margin:0 0 14px 0;">Artium Originals is Artium's own music label. Open to both students and teachers across the Artium ecosystem.</p>
+  <p style="font-family:Arial,sans-serif;font-size:14px;line-height:1.85;color:#9A7A7E;margin:0 0 14px 0;"><strong style="color:#D4AAAE;">For students:</strong> Artium Superstar winners and exceptional ATDP students get priority. <strong style="color:#D4AAAE;">For teachers and AEs:</strong> releases happen through the Teacher Series.</p>
+  <p style="font-family:Arial,sans-serif;font-size:14px;line-height:1.85;color:#9A7A7E;margin:0 0 18px 0;"><strong style="color:#D4AAAE;">50+ originals</strong> already out on all streaming platforms, with more in the pipeline through 2027.</p>
+  <p style="font-family:Georgia,serif;font-size:16px;font-style:italic;color:#C9A544;margin:18px 0 0 0;padding-top:16px;border-top:1px solid rgba(139,26,36,0.25);">Every release here started with someone deciding to take their music seriously.</p>
+</td></tr>
+
+<!-- THE STAGE -->
+<tr><td style="background-color:#1A1640;padding:36px 28px;text-align:center;">
+  <p style="font-family:Arial,sans-serif;font-size:9px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:#7870B0;margin:0 0 10px 0;">Artium Internal Newsletter Gallery</p>
+  <p style="font-family:Georgia,serif;font-size:34px;font-weight:bold;color:#EDE6DC;margin:0 0 8px 0;">The Stage</p>
+  <p style="font-family:Arial,sans-serif;font-size:13px;color:#8880B8;margin:0 0 22px 0;">All our newsletters in one place.</p>
+  <a href="https://artium-stage.vercel.app" style="display:inline-block;background-color:#7B6FC8;color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;padding:14px 36px;border-radius:30px;">VISIT THE STAGE</a>
+</td></tr>
+
+<!-- FOOTER -->
+<tr><td style="background-color:#09080A;padding:24px 28px 20px;border-top:1px solid rgba(100,90,120,0.2);">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td valign="middle"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439943/Group_13_3_soekwu.png" alt="Artium Academy" height="28" style="height:28px;width:auto;display:block;"></td>
+    <td valign="middle" align="right">
+      <a href="https://youtube.com/channel/UCb4wuyVXjQ_a3_jVXi9hgPg" style="display:inline-block;margin-left:12px;opacity:0.55;"><img src="https://res.cloudinary.com/dd7s6bb58/image/upload/v1778439943/Group_13_3_soekwu.png" alt="" width="0" height="0" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="display:inline-block;vertical-align:middle;"><path fill="#F2EDE4" d="M23.5 6.2s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.8-1.2C16.7 2.1 12 2.1 12 2.1s-4.7 0-7.6.2c-.6.1-1.8.1-2.8 1.2C.7 4.3.5 6.2.5 6.2S.3 8.4.3 10.6v2.1c0 2.2.2 4.4.2 4.4s.3 1.9 1.1 2.7c1.1 1.1 2.5 1.1 3.1 1.1C6.8 21 12 21 12 21s4.7 0 7.6-.2c.6-.1 1.8-.1 2.8-1.2.8-.8 1.1-2.7 1.1-2.7s.2-2.2.2-4.4v-2.1c0-2.2-.2-4.4-.2-4.4zM9.7 14.9V8.4l6.6 3.3-6.6 3.2z"/></svg></a>
+      <a href="https://instagram.com/artiumacademyofficial/" style="display:inline-block;margin-left:12px;opacity:0.55;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="display:inline-block;vertical-align:middle;"><path fill="#F2EDE4" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 5.8.2 4.8.4 4 .7 3.1 1 2.3 1.5 1.5 2.3.7 3.1.2 3.9-.1 4.8-.4 5.6-.5 6.6-.6 7.9-.7 9.1-.7 9.5-.7 12s0 2.9.1 4.1c.1 1.3.3 2.3.6 3.1.3.9.8 1.7 1.6 2.5.8.8 1.6 1.3 2.5 1.6.8.3 1.8.5 3.1.6 1.2.1 1.6.1 4.1.1s2.9 0 4.1-.1c1.3-.1 2.3-.3 3.1-.6.9-.3 1.7-.8 2.5-1.6.8-.8 1.3-1.6 1.6-2.5.3-.8.5-1.8.6-3.1.1-1.2.1-1.6.1-4.1s0-2.9-.1-4.1c-.1-1.3-.3-2.3-.6-3.1-.3-.9-.8-1.7-1.6-2.5C21.7.8 20.9.3 20 0 19.2-.3 18.2-.5 16.9-.6 15.7-.7 15.3-.7 12-.7zM12 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      <a href="https://linkedin.com/company/artiumacademy" style="display:inline-block;margin-left:12px;opacity:0.55;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="display:inline-block;vertical-align:middle;"><path fill="#F2EDE4" d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6zM8.3 18.5H5.6V9.7h2.7v8.8zm-1.3-10c-.9 0-1.6-.7-1.6-1.6 0-.9.7-1.6 1.6-1.6.9 0 1.6.7 1.6 1.6 0 .9-.8 1.6-1.6 1.6zm11.5 10h-2.7v-4.3c0-1 0-2.4-1.4-2.4-1.5 0-1.7 1.1-1.7 2.3v4.3H10V9.7h2.6v1.2h.1c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.9z"/></svg></a>
+      <a href="https://x.com/artiumacademy" style="display:inline-block;margin-left:12px;opacity:0.55;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="display:inline-block;vertical-align:middle;"><path fill="#F2EDE4" d="M18.3 2h3.1l-6.8 7.8 8 10.6h-6.3l-4.9-6.4-5.6 6.4H2.7l7.3-8.3L2.3 2h6.5l4.4 5.8L18.3 2zm-1.1 16.6h1.7L7 3.7H5.2l12 14.9z"/></svg></a>
+      <a href="https://facebook.com/ArtiumAcademyOfficial/" style="display:inline-block;margin-left:12px;opacity:0.55;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="display:inline-block;vertical-align:middle;"><path fill="#F2EDE4" d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3.1V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg></a>
+    </td>
+  </tr></table>
+</td></tr>
+<tr><td style="padding:0 28px;background-color:#09080A;"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="height:1px;background-color:rgba(255,255,255,0.05);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="background-color:#09080A;padding:16px 28px 22px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+    <td valign="top" style="font-family:Arial,sans-serif;font-size:10px;line-height:1.75;color:#3A3540;">
+      Artium Academy Pvt Ltd<br>
+      5th Floor D Wing, Gundecha Onclave, Khairani Rd,<br>
+      Chandivali, Saki Naka, Mumbai, Maharashtra 400072
+    </td>
+    <td valign="top" align="right" style="font-family:Arial,sans-serif;font-size:10px;line-height:1.75;color:#3A3540;">
+      Artium Talent Development Department<br>
+      Internal Newsletter &nbsp;&middot;&nbsp; May 2026
+    </td>
+  </tr></table>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
 </body>
 </html>
